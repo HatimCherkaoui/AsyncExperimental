@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -66,7 +66,7 @@ public class CustomExecutor {
                 Integer.MAX_VALUE,
                 0L,
                 TimeUnit.MILLISECONDS,
-                new LinkedBlockingDeque<>(),
+                new LinkedBlockingQueue<>(),
                 new CustomThreadFactory(poolName));
     }
 }
